@@ -1,0 +1,439 @@
+*, html, body{
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* Achievement list */
+
+#achievement-list-container{
+  width: 512px;
+  max-height: 512px;
+  position: absolute;
+  top: 50px;
+  left: 250px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+  
+  .achievement-item{
+    background: url('achievement-list-background-overview-desaturated.png');
+    position: relative;
+    border: 1px solid red;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-top: 5px;
+    max-height: 256px;
+    
+    .achievement-list-top{
+      background: url('top-bottom-sprite.png');
+      background-position: 0 22px;
+      width: 512px;
+      height: 22px;
+      z-index: 20;
+      color: rgb(255,255,255);
+      text-align: center;
+    }
+    
+    .achievement-list-top-badge{
+      background: url('top-bottom-sprite.png') 0 123px;
+      position: absolute;
+      float:left;
+      top: 18px;
+      left: 0;
+      width: 508px;
+      height: 18px;
+      opacity: 0.2;
+    }
+    
+    .achievement-list-top-bottom{
+      position: absolute;
+      top: 22px;
+      left: 0;
+      background: url('top-bottom-sprite.png') no-repeat;
+      background-position: -600px 0;
+      
+      width: 512px;
+      height: 63px;
+      z-index: 10;
+    }
+   
+    .achievement-expand{
+      background: url('plusminus.png');
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      top: 12px;
+      left: 68px;
+      display: block;
+      background-position: 16px 0;
+    }
+    
+    .achievement-data{
+      position: relative;
+      z-index: 30;
+      
+      .left-side-list-container{
+        position: relative;
+        float: left;
+        top: 0px;
+        left: 0px;
+        width: 56px;
+        height: 56px;
+        
+        .icon-frame{
+          position: relative;
+          top: -60px;
+          left: 8px;
+          width: 56px;
+          height: 56px;
+          background: url('iconframe.png');
+          background-position: -8px -8px;
+        }
+
+        .icon{
+          position: relative;
+          top: -8px;
+          left: 12px;
+          width: 48px;
+          height: 48px;
+        }
+      }
+      
+      .middle-list-container{
+        position: relative;
+        float: left;
+        text-align: center;
+        display: block;
+        overflow-y: auto;
+        overflow-x: hidden;
+        width: 390px;
+        max-height: 216px;
+        min-height: 56px;
+        font-size: 11px;
+        color: rgb(255,255,255);
+        
+        .achievement-title{
+          position: relative;
+          top: 0px;
+          left: 0px;
+          color: white;
+          width: 100%;
+          height: 18px;
+          font-size: 14px;
+        }
+        
+        .achievement-description{
+          position: relative;
+          top: -12px;
+        }
+        
+        .achievement-extended{
+          display: none;
+          
+          .achievement-extended-description{
+            font-weight: bold;
+          }
+        
+          .achievement-extended-progress{
+            text-align: center;
+            position: relative;
+            width: 212px;
+            height: 30px;
+            left: 96px;
+            
+            .achievement-extended-progressbar-fill{
+              position: absolute;
+              top: 6px;
+              left: 6px;
+              background-color: green;
+              height: 16px;
+            }
+            
+            .achievement-extended-progressbar-border{
+              position: absolute;
+              background: url(progressbar-border.png);
+              width: 256px;
+              height: 24px;
+            }
+            
+            .achievement-extended-progressbar-text{
+              position: absolute;
+              top: 6px;
+              left: 6px;
+              width: 212px;
+              height: 24px;
+            }
+          }
+        }
+      }
+      
+      .right-side-list-container{
+        position: relative;
+        float: right;
+        top: -16px;
+        width: 64px;
+        height: 64px;
+        
+        .shield{
+        
+          &.nopoints{
+            width: 64px;
+            height: 64px;
+            background: url('nopoints-shield.png');
+            background-position: 64px 0;
+          }
+          
+          &.points{
+            width: 64px;
+            height: 64px;
+            background: url('points-shield.png');
+            background-position: 64px 0;
+          }
+        }
+        
+        .point-count{
+          position: absolute;
+          top: 20px;
+          left: 0;
+          text-align: center;
+          width: 64px;
+          color: gray;
+        }
+      }
+    }
+    
+    .achievement-bottom{
+      position: relative;
+      height: 18px;
+      
+      .achievement-list-bottom-badge{
+        background: url('top-bottom-sprite.png') 0 123px;
+        position: absolute;
+        float:left;
+        top: 4px;
+        left: 0;
+        width: 508px;
+        height: 18px;
+        opacity: 0.2;
+      }
+      
+      .achievement-list-bottom-reward{
+        background: url('reward-title-background.png');
+        position: absolute;
+        float:left;
+        top: 0;
+        left: 0;
+        width: 512px;
+        height: 18px;
+        text-align: center;
+        color: rgb(255,255,255);
+        font-size: 12px;
+        background-position: 70px 0px;
+      }
+    }
+    
+    &.expand{
+    
+     .achievement-expand{
+        background-position: 16px 16px;
+      }
+      
+      .achievement-data{
+      
+        .middle-list-container{
+        
+          .achievement-extended{
+            display: block;
+          }
+        }
+      }
+    }
+    
+    &.achieved{
+      background: url('achievement-list-background-overview.png');
+      
+      &.expand{
+    
+        .achievement-expand{
+          background-position: 0 16px;
+        }
+        
+        .achievement-data{
+        
+          .middle-list-container{
+            
+            .achievement-extended{
+              display: block;
+            }
+          }
+        }
+      }
+      
+      .achievement-list-top{
+        background-position: 0 88px;
+      }
+      
+      .achievement-expand{
+        background-position: 0 0;
+      }
+      
+      .achievement-list-top-bottom{
+        background-position: 0 -3px;
+      }
+      
+      .middle-list-container{
+        color: rgb(0,0,0);
+        
+        .achievement-description{
+          font-weight: bold;
+        }
+        
+        .achievement-extended{
+          display: none;
+                   
+          .achievement-extended-progressbar-text{
+          
+            &.progressbar-text{
+              color: rgb(255,255,255);
+            }  
+          }
+        }
+      }
+      
+      .right-side-list-container{
+        
+        .shield{
+        
+          &.nopoints{
+            background-position: 0 0;
+          }
+          
+          &.points{
+            background-position: 0 0;
+          }
+        }
+        
+        .point-count{
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+/* Achievement */
+#achievements-container{
+  position: absolute;
+  top: 50%;
+  width: 50%;
+  
+  .achievement-container{
+    background: url('background.png');
+    background-repeat: no-repeat;
+    width: 33%;
+    min-width: 320px;
+    height: 96px;
+    margin: auto;
+    display: none;
+    
+    .left-side-container{
+      position: relative;
+      float: left;
+      top: 25px;
+      left: 15px;
+      width: 56px;
+      height: 56px;
+      
+      .icon-frame{
+        position: relative;
+        top: -56px;
+        left: -8px;
+        width: 56px;
+        height: 56px;
+        background: url('iconframe.png') -8px -8px;
+      }
+      
+      .icon{
+        position: relative;
+        top: -4px;
+        left: -4px;
+        width: 48px;
+        height: 48px;
+      }
+    }
+    
+    .middle-container{
+      position: relative;
+      float: left;
+      top: 20px;
+      left: 28px;
+      width: 160px;
+      height: 48px;
+      text-align: center;
+      
+      .achievement-earned{
+        position: relative;
+        top: 3px;
+        width: 150px;
+        height: 16px;
+        font-size: 11px;
+        color: rgb(47, 32, 8);
+      }
+      
+      .achievement-title{
+        text-shadow: 1px 1px #2b2b2b;
+        position: relative;
+        top: 0px;
+        left: 0px;
+        width: 150px;
+        height: 16px;
+        overflow: hidden;
+        color: white;
+      }
+    }
+    
+    .right-side-container{
+      position: relative;
+      float: left;
+      top: 18px;
+      left: 24px;
+      width: 64px;
+      height: 64px;
+      
+      .shield{
+      
+        width: 64px;
+        height: 64px;
+        
+        &.nopoints{
+          background: url('nopoints-shield.png') 0 0;
+        }
+        
+        &.points{
+          background: url('points-shield.png') 0 0;
+        }        
+      }
+      
+      .point-count{
+        position: absolute;
+        top: 20px;
+        left: 0;
+        color: rgb(255,255,255);
+        text-align: center;
+        width: 64px;
+      }
+    }
+  }
+}
+
+.icon.ambush{background: url('icons/Ability_Ambush.png');}
+.icon.backstab{background: url('icons/Ability_BackStab.png');}
+.icon.bullrush{background: url('icons/Ability_BullRush.png');}
+.icon.cheapshot{background: url('icons/Ability_CheapShot.png');}
+
+.clear{
+  clear: both;
+}

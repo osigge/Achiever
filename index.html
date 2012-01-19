@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <title>Achievement</title>
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="achiever.jquery.min.js"></script>
+    <link type="text/css" href="theme/wow/theme.css" rel="stylesheet"></link>
+    <style type="text/css">
+      body {
+        margin: 25%; 
+      }
+      #achiever-title{
+        text-align: center;
+        margin: 50px;
+      }
+      #link-achievements{
+        text-align: center;
+      }
+      #main-content{
+        height: 100%;
+      }
+    </style>
+    
+    <script type="text/javascript">
+      $(function(){
+        // Init some data, should be fetched from remote server
+        var achievements = 
+        [
+          {
+            name: 'clickmaster',
+            title: 'Clickmaster',
+            description: 'Hit the dead link five times',
+            icon: 'ambush',
+            points: '30',
+            extended: {
+              description: 'Happy clicking!',
+              progress: {
+                current: 0,
+                total: 5,
+                delimiter: ' / '
+              }
+            }            
+          },
+          {
+            name: 'showmaster',
+            title: 'Showmaster',
+            description: 'Look at your achievement list',
+            icon: 'bullrush',
+            reward: 'Feeling good'
+          }
+        ];
+        
+        // Init Achiever
+        $.achiever({
+          lang: 'enUS',
+          achievements: achievements
+        });
+        
+        $('#dead').click(function(){
+          $.achiever('alterProgress', 'clickmaster', 1);
+        });
+        $('#achievements').click(function(){
+          $.achiever('toggleList');
+          $.achiever('achieve', 'showmaster');
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main-content">
+      <h1 id="achiever-title">Achiever</h1>
+      <div id="link-achievements">
+        <a href="#dead" id="dead">I'm a dead Link</a>
+        <a href="#achievements" id="achievements">Show me the achievements</a>
+      </div>
+    </div>
+  </body>
+</html>

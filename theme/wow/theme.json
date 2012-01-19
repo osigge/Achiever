@@ -1,0 +1,12 @@
+{
+  "i18n" : {
+    "deDE" : {
+      "reward" : "Belohnung",
+      "achievementEarned" : "Erfolg errungen"
+    },
+    "enUS" : {
+      "reward" : "Reward",
+      "achievementEarned" : "Achievement unlocked"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<div id="{{name}}-achievement" class="achievement-container">
+  <div class="left-side-container">
+    <div class="icon {{icon}}"></div>
+    <div class="icon-frame"></div>
+    <div class="clear"></div>
+  </div>
+  <div class="middle-container">
+    <div class="achievement-earned">{{#localizedStrings}}{{achievementEarned}}{{/localizedStrings}}</div>
+    <div class="achievement-title">{{title}}</div>
+  </div>
+  <div class="right-side-container">
+    <div class="shield {{^points}}no{{/points}}points"></div>
+    {{#points}}
+      <div class="point-count">{{points}}</div>
+    {{/points}}
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+</div>

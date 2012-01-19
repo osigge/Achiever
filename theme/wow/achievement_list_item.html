@@ -1,0 +1,44 @@
+<li id="{{name}}-achievement-item" class="achievement-item {{achieved}}">
+  <div class="achievement-list-top">{{title}}</div>
+  <div class="achievement-list-top-badge"></div>
+  <div class="achievement-list-top-bottom"></div>
+  {{#extended}}
+    <a href="{{name}}-achievement-item" class="achievement-expand"></a>
+  {{/extended}}
+  <div class="achievement-data">
+    <div class="left-side-list-container">
+      <div class="icon {{icon}}"></div>
+      <div class="icon-frame"></div>
+    </div>
+    <div class="middle-list-container">
+      <div class="achievement-title"></div>
+      <div class="achievement-description">{{description}}</div>
+      {{#extended}}
+        <div class="achievement-extended">
+          <div class="achievement-extended-description">{{{description}}}</div>
+          {{#progress}}
+            <div class="achievement-extended-progress">
+              <div class="achievement-extended-progressbar-fill progressbar"></div>
+              <div class="achievement-extended-progressbar-border"></div>
+              <div class="achievement-extended-progressbar-text progressbar-text">{{text}}</div>
+            </div>
+          {{/progress}}
+        </div>
+      {{/extended}}
+    </div>
+    <div class="right-side-list-container">
+      <div class="shield {{^points}}no{{/points}}points"></div>
+      {{#points}}
+        <div class="point-count">{{points}}</div>
+      {{/points}}
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="achievement-bottom">
+    <div class="achievement-list-bottom-badge"></div>
+    {{#reward}}
+      <div class="achievement-list-bottom-reward">{{#localizedStrings}}{{reward}}{{/localizedStrings}}: {{reward}}</div>
+    {{/reward}}
+  </div>
+  <div class="clear"></div>
+</li>
